@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class FactoryMethodTest {
 
-    private static String SPECTED_HTML_MSJ = "HTML Click! Button says - 'Hello World!'";
-    private static String SPECTED_WIN_MSJ = "Windows Click! Button says - 'Hello World!'";
+    private static final String SPECTED_HTML_MSJ = "HTML Click! Button says - 'Hello World!'";
+    private static final String SPECTED_WIN_MSJ = "Windows Click! Button says - 'Hello World!'";
 
     @Test
     void htmlButtonTest() {
