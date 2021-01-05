@@ -9,21 +9,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class FactoryMethodTest {
 
-    private static final String SPECTED_HTML_MSJ = "HTML Click! Button says - 'Hello World!'";
-    private static final String SPECTED_WIN_MSJ = "Windows Click! Button says - 'Hello World!'";
+    private static final String EXPECTED_HTML_MSJ = "HTML Click! Button says - 'Hello World!'";
+    private static final String EXPECTED_WIN_MSJ = "Windows Click! Button says - 'Hello World!'";
 
     @Test
     void htmlButtonTest() {
         Dialog dialog = new HtmlDialog();
         dialog.renderButton();
-        assert (dialog.getButton().onClick()).equals(SPECTED_HTML_MSJ);
+        assert (dialog.getButton().onClick()).equals(EXPECTED_HTML_MSJ);
     }
 
     @Test
     void windowsButtonTest() {
         Dialog dialog = new WindowsDialog();
         dialog.renderButton();
-        assert (dialog.getButton().onClick()).equals(SPECTED_WIN_MSJ);
+        assert (dialog.getButton().onClick()).equals(EXPECTED_WIN_MSJ);
     }
 
     @Test
@@ -32,10 +32,10 @@ public class FactoryMethodTest {
         String clickSpected;
         if (System.getProperty("os.name").equals("Windows 10")) {
             dialog = new WindowsDialog();
-            clickSpected = SPECTED_WIN_MSJ;
+            clickSpected = EXPECTED_WIN_MSJ;
         } else {
             dialog = new HtmlDialog();
-            clickSpected = SPECTED_HTML_MSJ;
+            clickSpected = EXPECTED_HTML_MSJ;
         }
         dialog.renderButton();
         assert (dialog.getButton().onClick()).equals(clickSpected);
